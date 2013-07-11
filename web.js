@@ -3,6 +3,10 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
+
+var file = fs.readFileSync('index.html', "utf8");
+console.log(file);
+/*
 var content;
 // First I want to read the file
 fs.readFile('Index.html', function read(err, data) {
@@ -19,7 +23,7 @@ fs.readFile('Index.html', function read(err, data) {
 function processFile() {
     console.log(content);
 }
-
+*/
 /*
 fs.readFileSync('index.html', function (err, data) {
   if (err) throw err;
