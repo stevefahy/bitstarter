@@ -1,11 +1,17 @@
 var express = require('express');
-var fs = require('fs');
+//var fs = require('fs');
 
-var app = express.createServer(express.logger());
+//var app = express.createServer(express.logger());
 
 
-var file = fs.readFileSync('index.html', "utf8");
-console.log(file);
+fs = require('fs');
+fs.readFile('/doesnt/exist', 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(data);
+});
+
 /*
 var content;
 // First I want to read the file
