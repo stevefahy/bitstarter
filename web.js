@@ -3,10 +3,29 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
-fs.readFile('index.html', function (err, data) {
+var content;
+// First I want to read the file
+fs.readFile('./Index.html', function read(err, data) {
+    if (err) {
+        throw err;
+    }
+    content = data;
+
+    // Invoke the next step here however you like
+    console.log(content);   // Put all of the code here (not the best solution)
+    processFile();          // Or put the next step in a function and invoke it
+});
+
+function processFile() {
+    console.log(content);
+}
+
+/*
+fs.readFileSync('index.html', function (err, data) {
   if (err) throw err;
   console.log(data);
 });
+*/
 
 /*
 app.get('/', function(request, response) {
