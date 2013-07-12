@@ -65,9 +65,9 @@ var clone = function(fn) {
 
 if(require.main == module) {
     program
-    .option('-f, --checks <file>', 'Path to required checks.json', assertFileExists, CHECKSFILE_DEFAULT)
-    .option('-f, --file [file]', 'Path to optional index.html', assertFileExists, HTMLFILE_DEFAULT)
-    .option('-f, --url [URL]', 'Path to optional URL', assertURLExists, URL_DEFAULT)
+    .option('-f, --checks <file>', 'Path to required checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
+    .option('-f, --file [file]', 'Path to optional index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
+    .option('-f, --url [URL]', 'Path to optional URL', clone(assertURLExists), URL_DEFAULT)
         //.option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         //.option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .parse(process.argv);
